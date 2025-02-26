@@ -1,24 +1,15 @@
-import Footer from "./components/Footer";
+import Cart from "./components/Cart";
 import Greetings from "./components/Greetings";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import ProductInfo from "./components/ProductInfo";
-import User from "./components/User";
+import UserStatus from "./components/UserStatus";
+import Weather from "./components/Weather";
+
 
 const App = () => {
   return <section>
-    <Header />
-    <User 
-     img="https://www.mako.co.il/_next/image?url=https%3A%2F%2Fimg.mako.co.il%2F2025%2F02%2F20%2FmakoLogo2024.png&w=128&q=75"
-     name="Michael Niv"
-     age={18}
-     isMarried={false}
-     hobbies={["Coding", "Eating", "Reading"]}
-    />
-    <Footer>
-      <h1>HIIIIII</h1>
-      <div>SCSCS</div>
-    </Footer>
+    <Cart />
+    <Weather temprature={22}/>
+    <UserStatus isAdmin={false} loggedIn={false}/>
+    <Greetings timeOfDay="morning" />
   </section>
 }
 
