@@ -8,9 +8,6 @@ import './index.css';
 const App = () => {
   return <section>
     <Cart />
-    <Weather temprature={22}/>
-    <UserStatus isAdmin={false} loggedIn={false}/>
-    <Greetings timeOfDay="morning" />
   </section>
 }
 
