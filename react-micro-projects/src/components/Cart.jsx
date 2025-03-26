@@ -1,38 +1,28 @@
 import React from 'react'
+import { useState } from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
 
-// const Button = () => {
-//   const handleClick = () => console.log(Math.round(Math.random() * 10));
-  
-//   return <button onClick={handleClick}>Click</button>
-// }
-
-// const Copy = () => {
-//   const copyHandler = () => {
-//     console.log('STOOOOOPPPP');
-    
-//   }
-//   return (
-//     <p onCopy={copyHandler}>
-//       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptate, quas assumenda beatae pariatur saepe aperiam? Natus quod at beatae!
-//     </p>
-//   );
-// } 
-
-const Move = () => {
-  const moveHandler = () => {
-    console.log('Move event fires');
-    
-  }
-    return (
-    <p onMouseMove={moveHandler}>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptate, quas assumenda beatae pariatur saepe aperiam? Natus quod at beatae!
-    </p>
-  );
-}
 
 const Cart = () => {
-  const items = ["item1", "item2","item3","item14"]  ;
+  const testObj = {name: "Michael", title: "dude"};
+  console.log(testObj);
+  
+
+  let newObj = {...testObj, name: "OK", mike: 'oooo'};
+  console.log(newObj);
+  
+
+  const [items, setItems] = useState(["item1", "item2","item3","item14"])  ;
+  const addOneItem = () => setItems([...items, 'Michael'])
+  const removeOneItem = () => setItems(
+    items.filter(item => item !== 'Michael')
+  )
+
+  const updateOneItem = () => {
+    setItems(items.map(item => item === 'Michael' ? 'MICHAELLLLLL' : item))
+  }
+
+
 
   return (
     <div>
@@ -46,7 +36,10 @@ const Cart = () => {
           (item) => (<li key={Math.random()}>{item}</li>)
         )}
       </ul>
-      <Move />
+
+      <button onClick={addOneItem}>Add new item</button>
+      <button onClick={removeOneItem}>Remove Michael item</button>
+      <button onClick={updateOneItem}>update one item</button>
     </div>
   )
 }
